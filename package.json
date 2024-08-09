@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "description": "Dependencies for the Cypress suite",
+  "main": "index.js",
+  "scripts": {
+    "open-cypress": "cypress-ntlm open --e2e",
+    "report-test": "npm run cleanreports & npx cypress run --env environment=test & npm run posttest",
+    "posttest": "node cucumber-html-report.js",
+    "cleanreports": "node clean-report.js"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.13.2",
+    "cypress-cucumber-attach-screenshots-to-failed-steps": "^1.0.0",
+    "cypress-cucumber-preprocessor": "4.3.1",
+    "cypress-multi-reporters": "^1.6.4",
+    "cypress-ntlm-auth": "^4.1.3",
+    "mocha": "^10.3.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0",
+    "mochawesome-screenshots": "^1.7.3",
+    "multiple-cucumber-html-reporter": "^3.6.2"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "filterSpecs": true,
+    "omitFiltered": true,
+    "step_definitions": "cypress/e2e/cucumber/Tests",
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/cucumber-json",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^20.0.3",
+    "node": "18.18.0",
+    "npm": "6.14.18",
+    "rimraf": "^5.0.7"
+  }
+}

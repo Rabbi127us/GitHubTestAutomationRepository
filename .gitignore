@@ -1,0 +1,10 @@
+node_modules
+.idea
+.http-mitm-proxy
+cypress/reports/features
+cypress/reports/index.html
+cypress/videos
+cypress/cucumber-json
+cypress/downloads
+cypress/screenshots
+xunit.xml
