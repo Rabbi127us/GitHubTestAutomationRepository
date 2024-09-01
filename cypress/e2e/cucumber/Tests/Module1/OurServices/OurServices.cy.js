@@ -1,10 +1,12 @@
 import {Before, Given, When, Then, And } from "cypress-cucumber-preprocessor/steps";
 import home from '../../../Pages/home';
 import report from '../../../Helpers/report';
+import ourservices from '../../../Pages/ourservices'
+
+
 // Given("I am on the landing page", () => { 
 // cy.visit("https://zanoo.consulting/")
 // })
-
 
 Given("the user is on the Zanoo homepage", () => {
   cy.fixture('links').then(links => {
@@ -16,11 +18,14 @@ Given("the user is on the Zanoo homepage", () => {
 
 
 When("i click our services button", () => {
-cy.get('a[title="Our Services"]').click();
+ //cy.get('a[title="Our Services"]').click();
+
+ourservices.clickOurServicesButton()
 
 })
 
 Then("I should be taken to our services page", () => {
-cy.url().should('include', '/our-services/');
+  //cy.url().should('include', '/our-services/');
+  ourservices.navigateToOurServicesUrl()
 
 })
